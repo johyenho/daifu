@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    </head>
+<body>
+    <main>
+        <header>
+            <h1>
+                <i class="fab fa-firstdraft"></i>
+                <span>firstdraft</span>
+            </h1>
+            <address>
+                2021 FIRSTDRAFT <br>ALL RIGHT RESERVED
+            </address>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="#"><i class="fas fa-search"></i></a></li>
+            </ul>
+        </nav>
+        <section>
+            <article>
+                <div class="inner">
+                    <div class="txt">
+                        <h2>01</h2>
+                        <p>Love does not consist in gazing at each other, but in looking together in the same direction. -Antoine de Saint-Exupery-</p>
+                    </div>
+                    <figure>
+                        <video src="vids/vid1.mp4" muted loop></video>
+                    </figure>
+                </div>
+            </article>
+            <article>
+                <div class="inner">
+                    <div class="txt">
+                        <h2>02</h2>
+                        <p>Love does not consist in gazing at each other, but in looking together in the same direction. -Antoine de Saint-Exupery-</p>
+                    </div>
+                    <figure>
+                        <video src="vids/vid2.mp4" muted loop></video>
+                    </figure>
+                </div>
+            </article>
+            <article>
+                <div class="inner">
+                    <div class="txt">
+                        <h2>03</h2>
+                        <p>Love does not consist in gazing at each other, but in looking together in the same direction. -Antoine de Saint-Exupery-</p>
+                    </div>
+                    <figure>
+                        <video src="vids/vid3.mp4" muted loop></video>
+                    </figure>
+                </div>
+            </article>
+            <article>
+                <div class="inner">
+                    <div class="txt">
+                        <h2>04</h2>
+                        <p>Love does not consist in gazing at each other, but in looking together in the same direction. -Antoine de Saint-Exupery-</p>
+                    </div>
+                    <figure>
+                        <video src="vids/vid4.mp4" muted loop></video>
+                    </figure>
+                </div>
+            </article>
+        </section>
+        <aside>
+            <div class="txt">
+                <h1>TITLE COMES HERE</h1>
+                <P>Love does not consist in gazing at each other, but in looking together in the same direction. -Antoine de Saint-Exupery-</P>
+                <span>CLOSE</span>
+            </div>
+            <figure>
+                <video src="vids/vid1.mp4" muted loop></video>
+            </figure>
+        </aside>
+    </main>
+    
+    <script>
+        const items = document.querySelectorAll("article");
+        const aside = document.querySelector("aside");
+        const close = aside.querySelector("span");
+       
+        
+        for(let el of items){
+            el.addEventListener("mouseenter",e=>{
+                e.currentTarget.querySelector("video").play();
+            });
+             el.addEventListener("mouseout",e=>{
+                e.currentTarget.querySelector("video").pause();
+            });
+            
+            el.addEventListener("click",e=>{
+                let tit = e.currentTarget.querySelector("h2").innerText;
+                let txt = e.currentTarget.querySelector("p").innerText;
+                let vidSrc = e.currentTarget.querySelector("video").getAttribute("src");
+                
+                aside.querySelector("h1").innerText = tit;
+                aside.querySelector("p").innerText = txt;
+                aside.querySelector("video").setAttribute("src",vidSrc);
+                
+                aside.querySelector("video").play();
+                aside.classList.add("on");
+                
+                close.addEventListener("click",e=>{
+                    aside.classList.remove("on");
+                    aside.querySelector("video").stop();
+                });
+                
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
